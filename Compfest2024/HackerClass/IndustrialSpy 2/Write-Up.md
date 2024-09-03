@@ -8,6 +8,8 @@ They provide a pcapng file traffic.pcapng. I forgot the description of the chall
 I tried to search for USB protocol and I found a website called usb.org. I downloaded a pdf file from document library called hut1_5.pdf and I found something interesting.
 
 ![Screenshot from 2024-09-03 00-16-58](https://github.com/user-attachments/assets/a2f9d95f-1621-4464-85f4-ab8f109b86ca)
+![Screenshot from 2024-09-03 00-20-47](https://github.com/user-attachments/assets/a26ee7e6-2189-46ec-a95f-3d793265f03a)
+
 
 Starting from the 7th packet, it contain HID Data. There is a hex value (0x06). According to key codes I found before, 0x06 represents “c”. The next packet doesn’t contain HID Data but the next 4 packet does. With this information, I tried to write a script that I used to find out if the characters form a sentence. I also make a dictionary from the key codes.
 
@@ -83,3 +85,16 @@ for i in range (6, 649, 4):
 
 print(typing)
 ```
+
+![Screenshot from 2024-09-03 00-32-36](https://github.com/user-attachments/assets/b6e40ab4-5b8f-4f00-b767-321dc2d40fcc)
+
+The output is kinda weird. But there are some words with meaning. “_________16____0__e__m3__s0me______f0rens1_____fd746ec8b3__” looks like a flag. There are so many _ that are represented by 0x0 (reserved). Then I remember that the flag format is COMPFEST16{…}. I realized that caps letters are not detected by the script.
+
+Some HID data have different positions of key codes. That caused the script can’t detect it. 2 packet after it is a packet with HID data with the same posistions of codes but have 0x02 value at the beginning.
+
+![Screenshot from 2024-09-03 00-46-32](https://github.com/user-attachments/assets/8a3df32f-8142-4e77-970c-34dd7d663b59)
+
+I assumed 0x02 represents caps for key codes. From that information, I modified the script.
+
+
+
