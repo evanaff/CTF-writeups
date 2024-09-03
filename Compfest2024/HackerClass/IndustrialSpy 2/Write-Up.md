@@ -11,7 +11,8 @@ I tried to search for USB protocol and I found a website called usb.org. I downl
 
 Starting from the 7th packet, it contain HID Data. There is a hex value (0x06). According to key codes I found before, 0x06 represents “c”. The next packet doesn’t contain HID Data but the next 4 packet does. With this information, I tried to write a script that I used to find out if the characters form a sentence. I also make a dictionary from the key codes.
 
-`from scapy.all import *
+```python
+from scapy.all import *
 
 dictionary = {
     "0x0" : "_",
@@ -80,4 +81,5 @@ typing = ""
 for i in range (6, 649, 4):
     typing += dictionary[f"{hex(packets[i].load[-6])}"]
 
-print(typing)`
+print(typing)
+```
