@@ -239,6 +239,6 @@ Here is the flag :
 COMPFEST16{L0ve_m3_s0me_USB_f0rens1CS_fd746ec8b3}
 
 And I think this is an interesting YouTube link :3 
-[youtube.com/watch?v=p7YXXieghto ](youtube.com/watch?v=p7YXXieghto )
+[youtube.com/watch?v=p7YXXieghto ](https://youtube.com/watch?v=p7YXXieghto )
 
 
