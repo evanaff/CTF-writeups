@@ -4,7 +4,7 @@
 Alice found a python script that in its documentation promises to make it easy to crop images to a 1:1 ratio. However, Alice was scammed by that script, which actually removed the input image she inserted and transformed it into another file. Meanwhile, the image holds something important for her. Can you help Alice get that important thing back?
 
 There is wav file (encoded.wav) and a python source code. From the challenge description we now that the file is used for cropping image to 1:1 ratio. Let's try to understand how it works.
-1. convert umage file to RGB mode
+1. convert image file to RGB mode
 2. crop image to 1:1 ratio
 3. there is input text in binary form
 4. the input text is inserted to RBG value of image
@@ -51,3 +51,7 @@ binary_text = data[16:16 + binary_length]
 
 print(base64.b64decode(long_to_bytes(int(binary_text, 2)).decode()).decode())
 ```
+
+the inserted text looks like a base64 encoded strings so I decoded it and found the flag.
+
+### Flag : FindITCTF{d0nt_t12ust_l1b!!_ch3ck_th3_s0urce_c0d3_1ma0_44928}
