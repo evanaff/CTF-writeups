@@ -1,6 +1,5 @@
 # bagas dribble
-## Forensics
-### Solved
+## Forensics - solved
 
 In this challenge they gave me a jpg file without useful information. The flag is very easy to find. Just do a strings command to this file.
 
