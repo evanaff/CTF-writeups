@@ -87,6 +87,6 @@ I tried to open this file using ms word and there is a moveable object. There is
 
 ![Screenshot 2024-09-21 054228](https://github.com/user-attachments/assets/87b9c3df-706d-4282-90e8-9260f2e36efe)
 
-Thats looks like the first part of the flag. So The flag parts now is complete.
+Thats looks like the first part of the flag. So the flag parts now is complete.
 
 ### Flag : TechnoFair11{Welc0m3_4_Gr34t_Hack3rrr_00}}
