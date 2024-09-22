@@ -17,7 +17,7 @@ secret3.zip is encrypted zip file using AES method.
 
 First idea comes to my mind is to brute forcing zip file password using the wordlist. So I make this script :
 
-python```
+```python
 import pyzipper
 
 def try_password(zip_file, password):
@@ -39,3 +39,20 @@ def dict_attack(zip_filename, wordlist):
 
 dict_attack('secret3.zip', 'secret.txt.lst')
 ```
+
+![image](https://github.com/user-attachments/assets/024c7221-3062-420b-98fe-efde45ff5ae6)
+
+The content of zip is a file named flag then I checked it using hexeditor.
+
+![image](https://github.com/user-attachments/assets/89ed9152-a0ff-43b4-8263-d1649cf13f2c)
+
+in the beginning of file there is word "DNEI". If we reverse it becomes "IEND" which is the end strings of png file. So I reverse it using [cyberchef](https://gchq.github.io/CyberChef/)
+
+![image](https://github.com/user-attachments/assets/cdcbf751-a0ef-4696-b8f8-e3eb2e4d3de8)
+
+Here is the result
+
+<img width="802" alt="flag" src="https://github.com/user-attachments/assets/990673b0-b06e-4e4f-842f-9683b8f371dd">
+
+### Flag : TechnoFair11{B3_c4R3FuLL_w1tH_sN1ff3r}
+
