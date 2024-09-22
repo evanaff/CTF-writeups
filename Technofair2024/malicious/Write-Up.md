@@ -3,6 +3,7 @@
 
 They gave me a zip contain 3 files (file1.jpg, file2.png, file3.pdf). The description said that we must assemble flag parts from that 3 files. 
 
+
 file1.jpg :
 
 I have no idea with file1.jpg unless there is a probability of embedded file on file1.jpg using steghide but I don't have the passphrase.
