@@ -3,7 +3,24 @@
 
 They gave me a zip contain 3 files (file1.jpg, file2.png, file3.pdf). The description said that we must assemble flag parts from that 3 files. 
 
-When I checked file2.png using pngcheck its looks like the png file is corrupt.
+file1.jpg :
+
+I have no idea with file1.jpg unless there is a probability of embedded file on file1.jpg using steghide but I don't have the passphrase.
+
+This is what happen when I open file3.jpg using adobe pdf reader
+
+![Screenshot 2024-09-21 054104](https://github.com/user-attachments/assets/b34937c0-2e99-4c73-a141-899abc9923d9)
+
+There is interesting word "m4ybeyouNeedme" so I assume that as steghide passphrase on file1.jpg
+
+![image](https://github.com/user-attachments/assets/0bebe1eb-5622-4d20-aaa8-b6f45cd949b8)
+
+Yup my assumption is correct and its contain the last part of the flag.
+
+
+file2.png :
+
+I checked file2.png using pngcheck and its looks like the png file is corrupt.
 
 ![image](https://github.com/user-attachments/assets/bd7ee6df-10ab-48fb-baba-687ec0764e16)
 
@@ -61,3 +78,14 @@ The png still error because of unkown "HDAT" chunk, it should be "IDAT" so I fix
 Here is the result
 
 ![file2](https://github.com/user-attachments/assets/7cfe2970-a329-4e11-97b4-0f7ba7225f10)
+
+
+file3.pdf :
+
+I tried to open this file using ms word and there is movable object. There is something behind it.
+
+![Screenshot 2024-09-21 054228](https://github.com/user-attachments/assets/87b9c3df-706d-4282-90e8-9260f2e36efe)
+
+Thats looks like the first part of the flag. So The flag parts now is complete.
+
+### Flag : TechnoFair11{Welc0m3_4_Gr34t_Hack3rrr_00}}
