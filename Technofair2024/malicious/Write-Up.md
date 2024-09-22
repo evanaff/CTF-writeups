@@ -83,7 +83,7 @@ Here is the result
 
 file3.pdf :
 
-I tried to open this file using ms word and there is movable object. There is something behind it.
+I tried to open this file using ms word and there is a moveable object. There is something behind it.
 
 ![Screenshot 2024-09-21 054228](https://github.com/user-attachments/assets/87b9c3df-706d-4282-90e8-9260f2e36efe)
 
