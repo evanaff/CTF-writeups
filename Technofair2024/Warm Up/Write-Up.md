@@ -1,5 +1,5 @@
 # Write Up Challenge
-## Forensics - Solved
+## Forensics - solved
 
 There is a jpg file with no further information. So i check it with some comment.
 
