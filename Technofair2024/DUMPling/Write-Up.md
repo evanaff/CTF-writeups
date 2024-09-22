@@ -20,3 +20,6 @@ From the clue we can know that the flag is named flag1.png and flag2.png so I se
 The contents of flag1.png & flag2.png :
 
 <img width="223" alt="flag1" src="https://github.com/user-attachments/assets/dcf0ec1d-3bab-4908-81da-e5fcd8132555">
+<img width="226" alt="flag2" src="https://github.com/user-attachments/assets/c6182f6e-06ae-4f61-a91e-7191c6ae63db">
+
+### Flag : TechnoFair11{You_fiNd_THe_fLaG}
