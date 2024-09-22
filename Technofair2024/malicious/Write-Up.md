@@ -8,7 +8,7 @@ file1.jpg :
 
 I have no idea with file1.jpg unless there is a probability of embedded file on file1.jpg using steghide but I don't have the passphrase.
 
-This is what happen when I open file3.jpg using adobe pdf reader
+This is what happen when I open file3.pdf using adobe pdf reader
 
 ![Screenshot 2024-09-21 054104](https://github.com/user-attachments/assets/b34937c0-2e99-4c73-a141-899abc9923d9)
 
