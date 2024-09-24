@@ -5,7 +5,7 @@ We got a jpg file (chall.jpg) and a python script (enc.py)
 
 enc.py :
 
-```pyhton
+```python
 def insert_plaintext_into_image(input_file, output_file, plaintext,
 offset):
     with open(input_file, 'rb') as file:
