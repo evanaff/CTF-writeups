@@ -95,3 +95,13 @@ foreach ($file in $files) {
 Write-Output "dones"
 ```
 
+That script encrypt all files from document folder and save it to \AppData\Local\Microsoft\Garage
+
+![image](https://github.com/user-attachments/assets/73ad78b2-a7ea-4c6e-b27c-52ef936e253c)
+
+From the script we can know the encryption method used is AES CBC using key and iv that stored to HKCU:\Software\Microsoft\Windows NT\CurrentVersion\02e7a9afbb77
+
+![image](https://github.com/user-attachments/assets/94f5538e-de4e-44ec-9d98-8b0babfe7366)
+
+Here is the solver I used :
+
