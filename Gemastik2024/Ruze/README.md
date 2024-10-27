@@ -1,10 +1,12 @@
 # Ruze
-## Forensics
 
-# Difficulity
+## Category
+Forensics
+
+### Difficulity
 easy - medium
 
-# Description
+### Description
 You are a DFIR Consultant, you got a client (MR. K) who has a ransomware problem, where when he installs something suddenly his device reboots and his files suddenly disappear, and there are files that confirm that he was hit by ransomware. can you help him?
 
 Note : Dont execute the malicious file on your computer!
