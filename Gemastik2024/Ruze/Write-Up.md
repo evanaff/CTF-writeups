@@ -105,3 +105,20 @@ From the script we can know the encryption method used is AES CBC using key and 
 
 Here is the solver I used :
 
+```python
+from Crypto.Cipher import AES
+
+file = open('seccreettttt_credentialll_confidentalll_moodd_booossteerrrr.pdf', 'rb').read()
+key = b'ea0aaa5d53dddfe1'
+iv = file[0:16]
+encrypted = file[16:]
+
+cipher = AES.new(key, AES.MODE_CBC, iv)
+decrypted = cipher.decrypt(encrypted)
+
+result = open('result.pdf', 'wb').write(decrypted)
+```
+
+![image](https://github.com/user-attachments/assets/14e69fd8-a7fb-4bf6-ac97-fab79f814660)
+
+
