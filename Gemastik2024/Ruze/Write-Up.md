@@ -121,4 +121,5 @@ result = open('result.pdf', 'wb').write(decrypted)
 
 ![image](https://github.com/user-attachments/assets/14e69fd8-a7fb-4bf6-ac97-fab79f814660)
 
-
+## Flag
+gemastik{be_careful_with_what_is_on_the_internet_r4nsom_everywhere}
