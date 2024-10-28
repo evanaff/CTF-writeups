@@ -15,7 +15,7 @@ We can know that there is file named **console.bat** was executed. The content o
 
 ![image](https://github.com/user-attachments/assets/ffd3caf0-fc14-454c-b14d-28582ce9bf3c)
 
-I used powerdecode tool to decode and deobfuscate it and this is the result.
+I used [powerdecode](https://github.com/Malandrone/PowerDecode) tool to decode and deobfuscate it and this is the result.
 
 ```poweshell
 function Encrypt-File {
