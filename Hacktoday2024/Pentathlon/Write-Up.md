@@ -50,13 +50,29 @@ As mentioned in challenge description, we need to solve 5 steps of challenge.
    So I change the height value so it becomes higher.
 
    ![image](https://github.com/user-attachments/assets/d33dcd08-982e-4f52-8c57-d960a04400bf)
+
    ![chall2](https://github.com/user-attachments/assets/af9d1e46-c143-4f19-b053-e6b7807dc1e5)
 
    part 2 : cr0is_3n_m0i
 
 3. Step 3
-   
+   From the extended file before we know that the next challenge is in file's metadata, so I used exiftool to access it. There is google drive link for next challenge.
 
+   ![image](https://github.com/user-attachments/assets/a0fa22d5-e28e-4069-ba51-3ca3e9b0fda5)
+
+   ![image](https://github.com/user-attachments/assets/d4b72d3d-09ae-492b-b0c8-1d02c5763c09)
+
+   I crack the zipfile using fcrackzip and rockyou.txt
+
+   ![image](https://github.com/user-attachments/assets/c70ca740-bb75-4c9f-8fea-3b53f9aaee6b)
+
+   ![image](https://github.com/user-attachments/assets/72e8697c-fa04-4840-a083-2a1e18860bed)
+
+   part 3 : _for_1_b3li3
+
+
+
+   
    
 
    
