@@ -34,7 +34,13 @@ As mentioned in challenge description, we need to solve 5 steps of challenge.
    ```
    ![01](https://github.com/user-attachments/assets/94d1ba38-bcf7-4209-b0e3-16b73274d5ca)
 
-   First part : hacktoday{j3_
+   part 1 : hacktoday{j3_
+
+2. Step 2
+   The result of last binwalk also give me **chall2.jpg**
+
+   ![chall2](https://github.com/user-attachments/assets/07445bf4-9efc-4a9b-8852-cc40f65a31d9)
+
 
    
    
