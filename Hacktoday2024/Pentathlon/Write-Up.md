@@ -3,6 +3,7 @@
 As mentioned in challenge description, we need to solve 5 steps of challenge.
 
 1. Step 1
+
    ![chall1](https://github.com/user-attachments/assets/63ddeefc-2cc7-4278-aaa4-336d66775a38)
    
    The png file mention about binwalk so i checked using binwalk command and extract it. There is file named **20.png**
