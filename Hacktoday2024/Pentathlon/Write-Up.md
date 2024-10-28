@@ -37,6 +37,7 @@ As mentioned in challenge description, we need to solve 5 steps of challenge.
    part 1 : hacktoday{j3_
 
 2. Step 2
+
    The result of last binwalk also give me **chall2.jpg**
 
    ![chall2](https://github.com/user-attachments/assets/07445bf4-9efc-4a9b-8852-cc40f65a31d9)
@@ -56,6 +57,7 @@ As mentioned in challenge description, we need to solve 5 steps of challenge.
    part 2 : cr0is_3n_m0i
 
 3. Step 3
+
    From the extended file before we know that the next challenge is in file's metadata, so I used exiftool to access it. There is google drive link for next challenge.
 
    ![image](https://github.com/user-attachments/assets/a0fa22d5-e28e-4069-ba51-3ca3e9b0fda5)
@@ -71,6 +73,7 @@ As mentioned in challenge description, we need to solve 5 steps of challenge.
    part 3 : _for_1_b3li3
 
 4. Step 4
+
    In this challenge we have a png file **chall4.png** a a **script.py**. It looks like the script encoded a secret message from somewhere to **chall4.png**.
    ```python
    from PIL import Image
@@ -110,6 +113,7 @@ As mentioned in challenge description, we need to solve 5 steps of challenge.
    part 4 : ve_1n_mys3lf
 
 5. Step 5
+
    There is a hint
 
    ![chall5](https://github.com/user-attachments/assets/cdf53c09-1827-41e2-8029-c770c1131062)
