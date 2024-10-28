@@ -41,6 +41,23 @@ As mentioned in challenge description, we need to solve 5 steps of challenge.
 
    ![chall2](https://github.com/user-attachments/assets/07445bf4-9efc-4a9b-8852-cc40f65a31d9)
 
+   From the text, I assumed that the image is cropped. From [wikipedia](https://en.wikipedia.org/wiki/JPEG) I found that the height value of jpg image is saved in hex value. I also found more 
+   spesific of where is the hex value of the height from [here](https://cyberhacktics.com/hiding-information-by-changing-an-images-height/)
+
+   ![image](https://github.com/user-attachments/assets/12bbb1e1-3bdd-4382-a076-3f78ae71518b)
+   ![image](https://github.com/user-attachments/assets/2977df10-5f90-470d-b1d6-ed420abbea5b)
+
+   So I change the height value so it becomes higher.
+
+   ![image](https://github.com/user-attachments/assets/d33dcd08-982e-4f52-8c57-d960a04400bf)
+   ![chall2](https://github.com/user-attachments/assets/af9d1e46-c143-4f19-b053-e6b7807dc1e5)
+
+   part 2 : cr0is_3n_m0i
+
+3. Step 3
+   
+
+   
 
    
    
