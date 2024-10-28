@@ -33,6 +33,7 @@ As mentioned in challenge description, we need to solve 5 steps of challenge.
       path = path + next_path 
    ```
    ![01](https://github.com/user-attachments/assets/94d1ba38-bcf7-4209-b0e3-16b73274d5ca)
+
    First part : hacktoday{j3_
 
    
