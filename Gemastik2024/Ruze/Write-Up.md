@@ -7,7 +7,7 @@ The format of given file is AD1 so we need to check it with FTK Imager.
 There is non-default user **sand-4ECC834FCF** so I tried to analyze it.
 In description '.. when he installs something suddenly his device reboots and his files suddenly disappear .. ', we can assume the ransomware need to reboot/login for got executed. In windows you can set what device will do everytime user got login in Registry Key. 
 
-I used Registry Explorer tool to check on registry HCKU:SOFTWARE\Microsoft\Windows\CurrentVersion\Run for malicious entry via NTUSER.DAT
+I used Registry Explorer from [https://ericzimmerman.github.io/#!index.md](https://ericzimmerman.github.io/#!index.md) tool to check on registry HCKU:SOFTWARE\Microsoft\Windows\CurrentVersion\Run for malicious entry via NTUSER.DAT
 
 ![image](https://github.com/user-attachments/assets/6c1ba36e-b037-41ca-b6dc-cfc2b13853db)
 
