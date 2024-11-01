@@ -30,5 +30,9 @@ It said the rar password maybe same as pc password. So I find it using windows.h
 
 ![image](https://github.com/user-attachments/assets/89153c0d-daa2-4295-8f95-2bfa875e6f99)
 
-Just open the rar file with cracked password
+Just open the rar file with cracked password and we found the flag.
 
+![flag](https://github.com/user-attachments/assets/793f8b67-d936-44e7-95c6-02848eb38b73)
+
+## Flag
+hacktoday{mA5qu3R4de_0f_Gu1lTy}
