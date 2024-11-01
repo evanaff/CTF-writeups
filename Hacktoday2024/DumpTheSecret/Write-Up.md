@@ -24,4 +24,11 @@ It looks like the rar file needs a password to be extracted. So I try to find so
 
 ![image](https://github.com/user-attachments/assets/4cb181c1-d7cd-42f0-8984-6f661fedc819)
 
-It said the rar password maybe same as pc password. So I find it using windows.hashdumps
+It said the rar password maybe same as pc password. So I find it using windows.hashdump then crack user password (Afif) on [Crackstation](https://crackstation.net/)
+
+![image](https://github.com/user-attachments/assets/4ae1cc72-3e06-41da-8f69-97783ef8ca65)
+
+![image](https://github.com/user-attachments/assets/89153c0d-daa2-4295-8f95-2bfa875e6f99)
+
+Just open the rar file with cracked password
+
