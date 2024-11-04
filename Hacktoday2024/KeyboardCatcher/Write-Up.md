@@ -28,7 +28,7 @@ echo -e "\nDone"
 
 That codes encodes the content of file.txt 5 times then echo each character of the result with delay.
 
-For the other file, when we open it using notepad we can know that the file is an API Monitor 64-bit capture that can be analyze with apimonitor tools from [http://www.rohitab.com/apimonitor/](http://www.rohitab.com/apimonitor/)
+For the other file, when we open it using notepad we can know that the file is an API Monitor 64-bit capture that can be analyze with apimonitor tools from [http://www.rohitab.com/apimonitor/](http://www.rohitab.com/apimonitor/).
 
 I found something that caught my attention, an API called **WriteFile**.
 
@@ -40,7 +40,7 @@ From analyzing the hex buffer we can know that the shellcode before was executed
 
 So I parse the output of program which is encoded flag.txt manually and this is the result.
 
-`VjFaV2ExSXlSblJTV0hCV1lteHdhRlZxUWxwTlZuQlZVMnM1YUZJeFNrbFdSekExVjFVeGNWSnVUbGhpUjFKWVdXdGFkMWRHV25SbApSMFpYVFZad2VsWXdVa3RqTWtwWFdqTndWd3BpVm5CaFZGZDBZVTFXWkVWVWJUbHFVakZhU1ZsclVsTmhRWEJZVWpKb00xZHRlRVpQClZrSlNVRlF3UFE9PQ==`
+``VjFaV2ExSXlSblJTV0hCV1lteHdhRlZxUWxwTlZuQlZVMnM1YUZJeFNrbFdSekExVjFVeGNWSnVUbGhpUjFKWVdXdGFkMWRHV25SbApSMFpYVFZad2VsWXdVa3RqTWtwWFdqTndWd3BpVm5CaFZGZDBZVTFXWkVWVWJUbHFVakZhU1ZsclVsTmhRWEJZVWpKb00xZHRlRVpQClZrSlNVRlF3UFE9PQ==``
 
 Then just decode it using base64 5 times.
 
