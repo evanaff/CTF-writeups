@@ -23,3 +23,8 @@ I used [bmc-tools.py](https://github.com/ANSSI-FR/bmc-tools) to parse cache file
 It looks like the content of parsed file contain **Secret-file.zip** password.
 
 Key = Selamat_ngerjain_hacktoday_yaaa
+
+The extracted file is .docm formatted (macro enabled) so I tried to use [olevba](https://github.com/decalage2/oletools) tool.
+
+
+
