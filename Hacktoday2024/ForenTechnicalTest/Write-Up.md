@@ -26,5 +26,10 @@ Key = Selamat_ngerjain_hacktoday_yaaa
 
 The extracted file is .docm formatted (macro enabled) so I tried to use [olevba](https://github.com/decalage2/oletools) tool.
 
+![image](https://github.com/user-attachments/assets/8dcbf375-f333-4a0d-b487-be8141dbd575)
 
+Just find out the flag by concating part1, part2, and part3.
+
+## Flag
+hacktoday{jangan_lupa_disubmit_flagnya}
 
