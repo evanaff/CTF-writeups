@@ -17,7 +17,7 @@ We can know that there is file named **console.bat** was executed. The content o
 
 I used [powerdecode](https://github.com/Malandrone/PowerDecode) tool to decode and deobfuscate it and this is the result.
 
-```poweshell
+```shell
 function Encrypt-File {
     param (
         [string]$sourceFilePath,
