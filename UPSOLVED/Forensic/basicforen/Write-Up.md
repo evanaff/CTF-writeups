@@ -23,7 +23,7 @@ After some try, I found that the string is encoded using base58 method and conta
 
 Part 2 :
 
-Where is the second part? I try to analyze part1.png again.
+Where is the second part? I tried to analyze part1.png again.
 
 ![image](https://github.com/user-attachments/assets/73511501-ea56-4931-bfec-f512b9d5daf9)
 
@@ -35,12 +35,63 @@ Then I found there is another png file in part1.png. So I extracted it using cyb
 
 There is something weird about the pixels of image. I tried to analyzed it using stegsolve. Then I found the second part.
 
-![image](https://github.com/user-attachments/assets/52d0c126-2a57-4398-989f-5ef969c8e42b)
+![image](https://github.com/user-attachments/assets/679c3dcf-ca2d-4ae0-9a63-56165b266052)
 
-``part 2 : 3nG3
+``part 2 : 3nG3_no?}``
 
 Part 3 : 
 
+I don't have any hint about third part. But part3.jpg is a jpg format image. There is common steganography method called steghide. So I have an idea to bruteforce steghide password using rockyou.txt.
 
+steghideBruteforce.py :
 
-### Flag
+```python
+import subprocess
+import sys
+import os
+
+def brute_force_steghide(file_path, wordlist_path, output_file="extracted.txt"):
+    with open(wordlist_path, 'r', encoding='utf-8') as wordlist:
+        for line in wordlist:
+            password = line.strip()
+            print(f"[*] Mencoba password: {password}")
+
+            # Buat perintah steghide
+            command = [
+                "steghide", "extract",
+                "-sf", file_path,
+                "-p", password,
+                "-xf", output_file
+            ]
+
+            try:
+                result = subprocess.run(
+                    command,
+                    stdout=subprocess.DEVNULL,
+                    stderr=subprocess.DEVNULL
+                )
+                if result.returncode == 0:
+                    print(f"[+] Password ditemukan: {password}")
+                    print(f"[+] Data disimpan di: {output_file}")
+                    return
+            except Exception as e:
+                print(f"[-] Error saat menjalankan steghide: {e}")
+
+    print("[-] Password tidak ditemukan di wordlist.")
+
+if __name__ == "__main__":
+    if len(sys.argv) != 3:
+        print("Usage: python bruteforce_steghide.py <stego_file> <wordlist_path>")
+        sys.exit(1)
+
+    file_path = sys.argv[1]
+    wordlist_path = sys.argv[2]
+
+    brute_force_steghide(file_path, wordlist_path)
+```
+
+![image](https://github.com/user-attachments/assets/23aa68f9-5ebc-4fd8-8ee3-7081e7469a83)
+
+``part 3 : cL4Ss1C_cH4LL``
+
+### Flag : part 1 : HOLOGY7{s1Mpl3_cL4Ss1C_cH4LL3nG3_no?}
