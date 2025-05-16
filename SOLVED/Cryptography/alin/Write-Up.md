@@ -92,6 +92,7 @@ Program flow :
 We know the flag format is 'INTECHFEST{...}' so the first matrix created by 'INTECHFES' as key matrix.
 
 C = P x K
+
 P = C x K^-1
 
 Solver flow :
