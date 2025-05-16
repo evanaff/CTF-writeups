@@ -1,5 +1,5 @@
 # alin
-## Intechfest 2024
+## Intechfest CTF 2024
 
 They provide some attachment (flag.enc & Matrix.class). First we need to decompile Matrix.class to see the content. I use online tool like [https://www.decompiler.com/](https://www.decompiler.com/).
 

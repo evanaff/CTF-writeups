@@ -1,5 +1,5 @@
 # geraksendiri
-## Intechfest 2024
+## Intechfest CTF 2024
 
 There pcapng file, so i open it using wireshark. 
 
