@@ -3,7 +3,7 @@
 
 This is my first blockchain challenge. There is no useful hint on description, just link to blockchain launcher and a zip file containing the setup and a contract called `Warmup.sol`.
 
-![alt text](image.png)
+<img width="1074" height="764" alt="Screenshot From 2025-08-12 15-32-59" src="https://github.com/user-attachments/assets/5ff6c8ca-f0ca-483e-a823-d2316f0d887b" />
 
 First of all, I need to submit solution. I can get the solution by execute the command on the blockchain launcher. Once I get the solution, I can launch the blockchain instance. Then I get the credential.
 
@@ -67,10 +67,10 @@ There is function called solve that use 2 parameters. To solve it, I needed to p
 
 From the decompiled code, the condition required passing the values `0x1092` and `0x0aa289` to the function. So I call it using cast.
 
-![alt text](image-1.png)
+<img width="1246" height="387" alt="Screenshot From 2025-08-17 15-22-06" src="https://github.com/user-attachments/assets/48adf50f-0985-4b9b-b051-95962142c1bf" />
 
 *Note : $CHALL is the same as $SETUP.
 
-![alt text](image-2.png)
+<img width="491" height="42" alt="Screenshot From 2025-08-17 15-23-03" src="https://github.com/user-attachments/assets/1f698ed9-4e00-4c32-81fd-c11e9baebd6c" />
 
 `isSolved()` is now has `true` value, which means I can get the flag by access it through `flag` button on blockchain launcher before.
