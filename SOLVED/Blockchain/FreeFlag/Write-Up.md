@@ -1,21 +1,21 @@
 # FreeFlag
 ## Hacktoday 2025
 
-This is my first blockchain challenge. There is no useful hint on description, just link to blockchain launcher and a zip file containing the setup and a contract called `Warmup.sol`.
+This was my first blockchain challenge. The description did not provide any useful hints, only a link to the blockchain launcher and a zip file containing `Setup.sol` and `Warmup.sol`.
 
 <img width="1074" height="764" alt="Screenshot From 2025-08-12 15-32-59" src="https://github.com/user-attachments/assets/5ff6c8ca-f0ca-483e-a823-d2316f0d887b" />
 
-First of all, I need to submit solution. I can get the solution by execute the command on the blockchain launcher. Once I get the solution, I can launch the blockchain instance. Then I get the credential.
+The first step was to submit a solution. I could obtain it by executing the provided command on the blockchain launcher. Once I got the solution, I was able to launch the blockchain instance and receive the credentials.
 
 I used a tool called [Foundry](https://getfoundry.sh/). I created a Foundry project by running the command: `forge init`, then add `Setup.sol` and `Warmup.sol` to `/script`.
 
-Then I setup .env contains credentials variable (RPC_URL, PRIVKEY, SETUP, WALLET). Use command `source .env' to pass all variable from .env to bash. Then I can call public function using cast, for example :
+Next, I prepared a .env file containing the credential variables (RPC_URL, PRIVKEY, SETUP, WALLET). By running source .env, I exported all variables into the shell environment. With that, I could start interacting with the contract using cast. For example:
 ```foundry
 cast call $SETUP "isSolved()(bool)" --rpc-url $RPC_URL
 false
 ```
 
-To obtain the flag I need to check the condition to solve the challange on `Setup.sol`.
+To solve the challenge I need to check the condition defined on `Setup.sol`.
 
 ```solidity
 function isSolved() external view returns (bool) {
@@ -23,7 +23,7 @@ function isSolved() external view returns (bool) {
 }
 ```
 
-According to the function I need to check `Warmup.Sol`.
+This indicated that the actual solving logic was in `Warmup.sol`.
 
 ```solidity
 // SPDX-License-Identifier: UNLICENSED
