@@ -10,16 +10,16 @@ Teman saya memberi sebuah memory dump dan berkata ada sebuah rahasia di dalamnya
  
 pass rar : letusstartthegame
 
-## Solve
-First, I check the type of **chall.raw** file.
+## Solution
+First, I checked the type of **chall.raw** file.
 
 ![image](https://github.com/user-attachments/assets/49c045cf-0791-4a7c-84de-4d798110c71a)
 
-Windows Event Trace Log file can be analyzed using volatility. First command I used is `windows.filescan` to scan all files in memory dumps.
+It turned out to be a `Windows Event Trace Log` file, which can be analyzed using `Volatility3`. The first command I ran was `windows.filescan` to scan all files inside the memory dump.
 
 ![image](https://github.com/user-attachments/assets/e7dd176b-c606-4259-bcf0-ba529e3cf57f)
 
-I found interesting file from filescan result named `secret.rar` so I dump it using windows.dumpfiles.
+From the result, I found an interesting file named `secret.rar`. I dumped it using `windows.dumpfiles`.
 
 ![image](https://github.com/user-attachments/assets/b0e2b22e-133c-405d-b24c-f7bd32437209)
 
@@ -27,7 +27,7 @@ I found interesting file from filescan result named `secret.rar` so I dump it us
 
 ![image](https://github.com/user-attachments/assets/7c26ee3e-b0f3-4642-9242-7b83e05e69c6)
 
-It looks like the rar file needs a password to be extracted. So I try to find something in filescan result them I found `hint.txt`
+The `RAR` file required a `password` to extract. I went back to the filescan results and found `hint.txt`.
 
 ![image](https://github.com/user-attachments/assets/0b15296b-f328-4058-9986-176466481fa8)
 
@@ -35,13 +35,13 @@ It looks like the rar file needs a password to be extracted. So I try to find so
 
 ![image](https://github.com/user-attachments/assets/4cb181c1-d7cd-42f0-8984-6f661fedc819)
 
-It said the rar password maybe same as pc password. So I find it using windows.hashdump then crack user password (Afif) on [Crackstation](https://crackstation.net/)
+The hint mentioned that the RAR password might be the same as the `PC password`. I dumped the `hashes` using `windows.hashdump` and cracked the user password (Afif) on [Crackstation](https://crackstation.net/).  
 
 ![image](https://github.com/user-attachments/assets/4ae1cc72-3e06-41da-8f69-97783ef8ca65)
 
 ![image](https://github.com/user-attachments/assets/89153c0d-daa2-4295-8f95-2bfa875e6f99)
 
-Just open the rar file with cracked password and we found the flag.
+After cracking the password, I was able to extract the RAR file and finally found the `flag`.
 
 ![flag](https://github.com/user-attachments/assets/793f8b67-d936-44e7-95c6-02848eb38b73)
 

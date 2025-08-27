@@ -5,17 +5,18 @@
 ## Category
 Digital Forensic
 
-## Solve
+## Description
 Alice found a python script that in its documentation promises to make it easy to crop images to a 1:1 ratio. However, Alice was scammed by that script, which actually removed the input image she inserted and transformed it into another file. Meanwhile, the image holds something important for her. Can you help Alice get that important thing back?
 
-There is wav file (encoded.wav) and a python source code. From the challenge description we now that the file is used for cropping image to 1:1 ratio. Let's try to understand how it works.
+## Solution
+The challenge provided a `.wav` file `encoded.wav` along with the Python source code. From the challenge description and source analysis, we can summarize how the script works:
 1. convert image file to RGB mode
 2. crop image to 1:1 ratio
-3. there is input text in binary form
-4. the input text is inserted to RBG value of image
-5. the cropped image with inserted text then converted to wav
+3. take the input text in binary form
+4. insert the input text into the RGB values of the image
+5. convert the cropped image with the inserted text into a `.wav` file
    
-with tha information we can convert it back to image and extract the inserted text. This is the solver i used 
+With this information, we can reverse the process. Convert the `.wav` file back into an image, then extract the embedded text. The following solver script was used:
 
 ```python
 import numpy as np
@@ -57,7 +58,7 @@ binary_text = data[16:16 + binary_length]
 print(base64.b64decode(long_to_bytes(int(binary_text, 2)).decode()).decode())
 ```
 
-the inserted text looks like a base64 encoded strings so I decoded it and found the flag.
+The extracted text appeared to be Base64-encoded, so I decoded it and successfully recovered the flag.
 
 ## Flag
 FindITCTF{d0nt_t12ust_l1b!!_ch3ck_th3_s0urce_c0d3_1ma0_44928}

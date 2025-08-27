@@ -1,27 +1,26 @@
 # Pentathlon
 
 ### Status : Upsolved
+> Almost got it, just missing the second part.
 
 ## Category
 Forensics
 
 ## Description
-I forgot the detail but in this challange tou must solve 5 challenge from the file given. Here is the file [chall1.png](https://drive.google.com/file/d/1FJfTWcS9Bj2R9b6O7k9x1N1C26BKk8ZA/view?usp=drive_link)
+I forgot the detail but in this challange you must solve 5 challenge from the file given. Here is the file [chall1.png](https://drive.google.com/file/d/1FJfTWcS9Bj2R9b6O7k9x1N1C26BKk8ZA/view?usp=drive_link)
 
-## Solve
-Almost got it, just missing the second part lol.
+## Solution
+As mentioned in the challenge, there were 5 steps to complete.
 
-As mentioned in challenge description, we need to solve 5 steps of challenge.
-
-1. Step 1
+1. **Step 1**
 
    ![chall1](https://github.com/user-attachments/assets/63ddeefc-2cc7-4278-aaa4-336d66775a38)
    
-   The png file mention about binwalk so i checked using binwalk command and extract it. There is file named **20.png**
+   The image mentioned `binwalk`, so I checked it with `binwalk` and extracted the contents. That gave me a file called `20.png`:
    
    ![20](https://github.com/user-attachments/assets/646c4573-036c-4f84-ace0-7784d39fe98a)
    
-   I assumed that we need to use binwalk command until we found the flag. So I used script to make things easier.
+   I assumed I had to keep running `binwalk` until the hidden file containing the flag was revealed. To make it easier, I wrote a small script:
    ```python
    import subprocess
 
@@ -43,23 +42,25 @@ As mentioned in challenge description, we need to solve 5 steps of challenge.
       next_path = f"_{index}.png.extracted/"
       path = path + next_path 
    ```
+
+   After running this recursively, I found the first part of the flag:
+
    ![01](https://github.com/user-attachments/assets/94d1ba38-bcf7-4209-b0e3-16b73274d5ca)
 
    part 1 : hacktoday{j3_
 
-2. Step 2
+2. **Step 2**
 
-   The result of last binwalk also give me **chall2.jpg**
+   The last `binwalk` extraction also gave me `chall2.jpg`:
 
    ![chall2](https://github.com/user-attachments/assets/07445bf4-9efc-4a9b-8852-cc40f65a31d9)
 
-   From the text, I assumed that the image is cropped. From [wikipedia](https://en.wikipedia.org/wiki/JPEG) I found that the height value of jpg image is saved in hex value. I also found more 
-   spesific of where is the hex value of the height from [here](https://cyberhacktics.com/hiding-information-by-changing-an-images-height/)
+   The text suggested that the image was cropped. From [wikipedia](https://en.wikipedia.org/wiki/JPEG) , I learned that the height value of a `JPEG` is stored as a hex value. I also found a more detailed explanation [here](https://cyberhacktics.com/hiding-information-by-changing-an-images-height/).
 
    ![image](https://github.com/user-attachments/assets/12bbb1e1-3bdd-4382-a076-3f78ae71518b)
    ![image](https://github.com/user-attachments/assets/2977df10-5f90-470d-b1d6-ed420abbea5b)
 
-   So I change the height value so it becomes higher.
+   By modifying the height value in a hex editor and increasing it, the hidden content was revealed:
 
    ![image](https://github.com/user-attachments/assets/d33dcd08-982e-4f52-8c57-d960a04400bf)
 
@@ -67,15 +68,15 @@ As mentioned in challenge description, we need to solve 5 steps of challenge.
 
    part 2 : cr0is_3n_m0i
 
-3. Step 3
+3. **Step 3**
 
-   From the extended file before we know that the next challenge is in file's metadata, so I used exiftool to access it. There is google drive link for next challenge.
+   From the previous extraction, I suspected the next clue was hidden in the file’s `metadata`. Using `exiftool`, I found a Google Drive link:
 
    ![image](https://github.com/user-attachments/assets/a0fa22d5-e28e-4069-ba51-3ca3e9b0fda5)
 
    ![image](https://github.com/user-attachments/assets/d4b72d3d-09ae-492b-b0c8-1d02c5763c09)
 
-   I crack the zipfile using fcrackzip and rockyou.txt
+   The link pointed to a password-protected zip file. I cracked it using `fcrackzip` with the `rockyou.txt` wordlist:
 
    ![image](https://github.com/user-attachments/assets/c70ca740-bb75-4c9f-8fea-3b53f9aaee6b)
 
@@ -83,9 +84,9 @@ As mentioned in challenge description, we need to solve 5 steps of challenge.
 
    part 3 : _for_1_b3li3
 
-4. Step 4
+4. **Step 4**
 
-   In this challenge we have a png file **chall4.png** a a **script.py**. It looks like the script encoded a secret message from somewhere to **chall4.png**.
+   This step provided `chall4.png` and a script `script.py`. The script was clearly used to encode a secret message into `chall4.png`:
    ```python
    from PIL import Image
 
@@ -101,8 +102,7 @@ As mentioned in challenge description, we need to solve 5 steps of challenge.
 
    image.save("chall4.png")
    ```
-   This script encoded a message to **chall4.png** by modifying rgb values. Each character in message converted into ascii/ord then xorred by g value and saved in r value of image. g value of 
-   image also xorred by b value and the b value doesn't change. So we can just xor it back to obtain the message value. I used this script to decode the script message.
+   The encoding worked by converting each character into its ASCII value, XORing it with the `g` component of a pixel, and saving the result in the `r` component. The `g` component was also XORed with the `b` component. To recover the original message, I simply reversed the process:
    ```python
    from PIL import Image
 
@@ -123,17 +123,17 @@ As mentioned in challenge description, we need to solve 5 steps of challenge.
 
    part 4 : ve_1n_mys3lf
 
-5. Step 5
+5. **Step 5**
 
-   There is a hint
+   This step included a hint:
 
    ![chall5](https://github.com/user-attachments/assets/cdf53c09-1827-41e2-8029-c770c1131062)
 
-   I guess we just need to fix **finish.png**. So I check it first using **pngcheck**.
+   It looked like I had to repair `finish.png`. I started by checking it with `pngcheck`:
 
    ![image](https://github.com/user-attachments/assets/a4514dc4-f882-4e87-b56f-b113b970396b)
 
-   It looks like an error chunk. The correct value also has been showed in the pngcheck result. So I fixed it using hexeditor. Repeat it until the png file fully fixed.
+   The output showed errors in `PNG` chunks and even suggested the correct values. Using a `hex editor`, I manually fixed the errors one by one until the file was restored:
 
    ![finish](https://github.com/user-attachments/assets/399b3fd3-d6b9-4728-b9f3-16cda5632f54)
 

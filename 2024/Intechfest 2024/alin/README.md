@@ -5,11 +5,11 @@
 ## Category
 Cryptography
 
-## Solve
-They provide some attachment (flag.enc & Matrix.class). First we need to decompile Matrix.class to see the content. I use online tool like [https://www.decompiler.com/](https://www.decompiler.com/).
+## Solution
+The challenge provided two attachments: `flag.enc` and `Matrix.class`.
+To analyze it, I first decompiled `Matrix.class` using an online decompiler: [https://www.decompiler.com/](https://www.decompiler.com/).
 
-Matrix.java :
-
+Decompiled `Matrix.java` :
 ```java
 import java.util.Scanner;
 
@@ -86,27 +86,26 @@ public class Matrix {
 }
 ```
 
-Program flow : 
-1. user input a plaintext
-2. add padding to plaintext so the length of plaintext become multiply of 9
-3. convert each 9 character of plaintext to 3x3 matrix as ascii number
-4. multiply each matrix with the first matrix
-5. convert all matrix to an array
-6. print the content of array (ciphertext)
+**Program flow :** 
+1. user inputs plaintext
+2. plaintext is padded so its length is a multiple of 9
+3. very 9 characters are converted into a 3×3 ASCII matrix
+4. each matrix is multiplied with the first matrix
+5. all results are flattened into an array
+6. the ciphertext array is printed
 
-We know the flag format is 'INTECHFEST{...}' so the first matrix created by 'INTECHFES' as key matrix.
-
+Since the flag format is `INTECHFEST{...}`, the first matrix is derived from `INTECHFES` and acts as the key matrix.
+```ini
 C = P x K
-
 P = C x K^-1
+```
 
-Solver flow :
-1. create matrix 3x3 from ciphertext
-2. multiply each matrix with inverse of key matrix
-3. convert the result to text
+**Solver flow :**
+1. reshape ciphertext into 3×3 matrices
+2. multiply each matrix by the inverse of the key matrix
+3. convert results back into text
 
-solver.py :
-
+`solver.py` :
 ```python
 import numpy as np
 
@@ -147,4 +146,5 @@ for i, matrix in enumerate(reshaped_matrices):
 print(f"\nDecoded Plaintext: {result}")
 ```
 
-### Flag : INTECHFEST{y3t_4n0th3r_m4tr1x_ch4ll_bu7_wr1tt3n_1n_j4v4}
+## Flag
+INTECHFEST{y3t_4n0th3r_m4tr1x_ch4ll_bu7_wr1tt3n_1n_j4v4}

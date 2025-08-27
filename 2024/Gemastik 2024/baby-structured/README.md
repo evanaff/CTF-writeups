@@ -5,16 +5,16 @@
 ## Category
 Digital Forensic
 
-## Solve
-There is just 1 file named zhezhi_______.
+## Solution
+In this challenge, I was given a single file named zhezhi_______.
 
 ![image](https://github.com/user-attachments/assets/c05bb0b3-89bd-4a69-a31a-f62458aca384)
 
-We know that the file is png image but its corrupt so I rename it and checked with pngcheck.
+I could tell that the file was a PNG image, but it was corrupted. I renamed the file and checked it with pngcheck.
 
 ![image](https://github.com/user-attachments/assets/6202a9f6-b07e-4a89-ab4d-c461d398a208)
 
-There is CRC error in IHDR chunk so I change the expected chunk with computed chunk using hexeditor.
+The tool showed a CRC error in the IHDR chunk. To fix this, I replaced the expected CRC with the computed CRC using a hex editor.
 
 ![image](https://github.com/user-attachments/assets/3df641ed-440c-4123-99f2-9f90440c122c)
 
@@ -24,7 +24,7 @@ There is nothing I can rely on from the result.
 
 ![image](https://github.com/user-attachments/assets/f522ef9b-7334-4d8f-bf10-e117de5bff76)
 
-When I checked it again it says that the image is 49,6% of what it would be. Maybe the problem is about size. So i return the chunk and check the actual size with script from [https://ctftime.org/writeup/31187](https://ctftime.org/writeup/31187)
+Checking again, I noticed the PNG file was still broken. That hinted the problem was not only CRC, but also the image dimensions. I restored the original IHDR chunk and brute-forced the correct width and height with a script from this CTFtime write-up. [https://ctftime.org/writeup/31187](https://ctftime.org/writeup/31187)
 
 ```python
 from pwn import p32
@@ -49,7 +49,11 @@ for width in range(0, max_dimension):
             exit()
 ```
 
+The script eventually gave me the correct dimensions.
+
 ![image](https://github.com/user-attachments/assets/e29b24b6-28e9-4756-94f6-ab5c55169a85)
+
+After applying the fix, I was finally able to recover the image.
 
 ![image](https://github.com/user-attachments/assets/3e4d0ec6-3052-4517-b797-90c0dd78590f)
 

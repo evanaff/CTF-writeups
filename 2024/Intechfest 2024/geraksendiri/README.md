@@ -5,19 +5,18 @@
 ## Category
 Digital Forensic
 
-## Solve
-There pcapng file, so i open it using wireshark. 
+## Solution
+The challenge provided a `.pcapng` file, so I opened it using `Wireshark`.
 
 ![image](https://github.com/user-attachments/assets/d99c0b96-bffb-4031-8075-619800a0e7d2)
 
-After some searching I know that the pcap file contains record of bluetooth keyboard key that pressed by someone. I need created a script to parse all keyboard key that pressed from the pcap file. But before that I need to know hex representative of each keycode value. After some searching I found this [https://usb.org/sites/default/files/documents/hut1_12v2.pdf](https://usb.org/sites/default/files/documents/hut1_12v2.pdf).
+I realized the capture contained `Bluetooth keyboard traffic`, specifically keystrokes pressed by someone. To solve this, I needed to parse all the keyboard inputs recorded in the pcap file. Before writing a parser, I first had to understand the hex representation of each keycode value. I found the reference: [https://usb.org/sites/default/files/documents/hut1_12v2.pdf](https://usb.org/sites/default/files/documents/hut1_12v2.pdf).
 
 ![image](https://github.com/user-attachments/assets/d30fc8fb-9e17-4b99-b2a3-2f43009a7c4b)
 
-So I used it to create a dictionary. hex value can be obtained from `usbhid.boot_report.keyboard.keycode_1` value of bthid layer packet. I also need detect if left shift key pressed by accessing hex value from `usbhid.boot_report.keyboard.modifier.left_shift`.
+Using that document, I built a dictionary mapping for `HID` keycodes. The hex value could be extracted from `usbhid.boot_report.keyboard`.keycode_1 in the `bthid` layer of each packet. I also needed to detect if the Left Shift key was pressed by checking `usbhid.boot_report.keyboard.modifier.left_shift`.
 
-parser.py :
-
+`parser.py` :
 ```python
 hid_key_map = {
     '04': 'a', '05': 'b', '06': 'c', '07': 'd', '08': 'e', '09': 'f',
@@ -76,8 +75,12 @@ print(''.join(typed))
 
 ```
 
-Result :
+**Result :**
 
 ![image](https://github.com/user-attachments/assets/394dc02f-ede4-45d7-9da5-6f2c335205ec)
 
-There is a link, but when I write this write-up the endpoint cannot be accessed. As far as I remember, that link contains a zip file and video. The zip file needed password to extract. The video show us when someone type the password on computer. The password is the same word as first word in the output `l33t1337dbNl`. The zip file contains flag.
+The result showed a URL. However, when I wrote this write-up the endpoint was no longer accessible. From memory, the link contained a `ZIP` file and a `video`. The video showed someone typing the password on their computer. That password matched the first word in the parsed output: 
+```
+l33t1337dbNl
+```
+I used this as the ZIP password. Inside the ZIP was the `flag`.

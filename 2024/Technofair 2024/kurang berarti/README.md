@@ -5,11 +5,10 @@
 ## Category
 Digital Forensic
 
-## Solve
-We got a jpg file (chall.jpg) and a python script (enc.py)
+## Solution
+I was given a JPG file `chall.jpg` and a Python script `enc.py`.
 
-enc.py :
-
+`enc.py` :
 ```python
 def insert_plaintext_into_image(input_file, output_file, plaintext,
 offset):
@@ -47,13 +46,18 @@ offset = 0x00000D00
 insert_plaintext_into_image(input_file, output_file, plaintext, offset)
 ```
 
-this codes is a script that used for inserting a plaintext to image bytes starting from determined offset. The step is :
+This script inserts plaintext bits into the image bytes starting from a specified offset. The process works as follows:
 1. read image bytes
 2. convert plaintext to binary
-3. starting from offset, convert the bytes with operation (new_byte = (original_byte & 0xFE) | plaintext_bit)
+3. Starting at the given offset, each byte is modified using: `new_byte = (original_byte & 0xFE) | plaintext_bit`
 
-We can retrieve the plaintext bit from operation. xor the new_byte with 1, if the result < new_byte so the plaintext bit is 1 and vice versa. So I create a script to retrieve plaintext from chall.jpg.
+To recover the hidden text, I needed to reverse the process.
 
+The idea:
+- Compare the modified byte (new_byte) with its XOR-1 result.
+- If (enc_byte ^ 1) < enc_byte → the hidden bit is 1, otherwise 0.
+
+Here’s the decoder script I used:
 ```python
 def decode(input_file, offset):
     with open(input_file, 'rb') as file:
@@ -86,4 +90,5 @@ decode(input_file, offset)
 
 ![image](https://github.com/user-attachments/assets/f1abd068-9cdc-495c-8082-5a936571e32f)
 
-### Flag : TechnoFair11{patenkalikaubang}
+## Flag
+TechnoFair11{patenkalikaubang}

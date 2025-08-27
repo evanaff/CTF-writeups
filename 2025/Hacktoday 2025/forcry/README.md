@@ -18,7 +18,6 @@ The challenge description mentioned that the PNG was encrypted and the pattern l
 Signature of PNG is `89 50 4E 47`. I found that the encryption substracted the first 4 bytes by `0x04`. However the next 4 bytes was correct. Then the next 4 bytes were incorrect again with the same change as the first 4 bytes followed by another 4 correct bytes again.
 
 Based on this repeating pattern, I wrote a python script to decrypt the PNG file:
-
 ```python
 #!/usr/bin/env python3
 import sys

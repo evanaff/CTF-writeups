@@ -16,23 +16,23 @@ you can download the file you need in here : [https://mega.nz/file/Ln53ARjT#ZUwO
 
 Password : 1nip4ssw0rdny4
 
-## Solve
-The format of given file is AD1 so we need to check it with FTK Imager.
+## Solution
+In this challenge, the given file was in `AD1` format, so I started by examining it with FTK Imager.
 
 ![image](https://github.com/user-attachments/assets/2106c011-7c08-4a26-83fa-5607aa1864de)
 
-There is non-default user **sand-4ECC834FCF** so I tried to analyze it.
-In description '.. when he installs something suddenly his device reboots and his files suddenly disappear .. ', we can assume the ransomware need to reboot/login for got executed. In windows you can set what device will do everytime user got login in Registry Key. 
+I noticed a non-default user account named **sand-4ECC834FCF**, so I focused my analysis there.
+From the description `when he installs something, suddenly his device reboots and his files disappear`, I suspected that the ransomware was configured to execute upon reboot or login. On Windows, this behavior is commonly set in the Registry under the Run key. 
 
-I used Registry Explorer from [https://ericzimmerman.github.io/#!index.md](https://ericzimmerman.github.io/#!index.md) tool to check on registry HCKU:SOFTWARE\Microsoft\Windows\CurrentVersion\Run for malicious entry via NTUSER.DAT
+I used Registry Explorer from [https://ericzimmerman.github.io/#!index.md](https://ericzimmerman.github.io/#!index.md) to examine the hive `HCKU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run` in the `NTUSER.DAT`.
 
 ![image](https://github.com/user-attachments/assets/6c1ba36e-b037-41ca-b6dc-cfc2b13853db)
 
-We can know that there is file named **console.bat** was executed. The content of that file is encoded powershell code.
+I found an entry pointing to a file named `console.bat`, which contained encoded `PowerShell` code.
 
 ![image](https://github.com/user-attachments/assets/ffd3caf0-fc14-454c-b14d-28582ce9bf3c)
 
-I used [powerdecode](https://github.com/Malandrone/PowerDecode) tool to decode and deobfuscate it and this is the result.
+I decoded and deobfuscated the script using [powerdecode](https://github.com/Malandrone/PowerDecode). Here is the result:
 
 ```shell
 function Encrypt-File {
@@ -112,15 +112,15 @@ foreach ($file in $files) {
 Write-Output "dones"
 ```
 
-That script encrypt all files from document folder and save it to \AppData\Local\Microsoft\Garage
+This script encrypt all files from `Document` and save it to `\AppData\Local\Microsoft\Garage`
 
 ![image](https://github.com/user-attachments/assets/73ad78b2-a7ea-4c6e-b27c-52ef936e253c)
 
-From the script we can know the encryption method used is AES CBC using key and iv that stored to HKCU:\Software\Microsoft\Windows NT\CurrentVersion\02e7a9afbb77
+From the script, I found that the encryption method used was `AES` in `CBC` mode, with the `key` and `IV` stored at `HKCU:\Software\Microsoft\Windows NT\CurrentVersion\02e7a9afbb77`.
 
 ![image](https://github.com/user-attachments/assets/94f5538e-de4e-44ec-9d98-8b0babfe7366)
 
-Here is the solver I used :
+Here is the `decryption script` I used :
 
 ```python
 from Crypto.Cipher import AES
@@ -135,6 +135,8 @@ decrypted = cipher.decrypt(encrypted)
 
 result = open('result.pdf', 'wb').write(decrypted)
 ```
+
+After decryption, I successfully recovered the original PDF containing the flag.
 
 ![image](https://github.com/user-attachments/assets/14e69fd8-a7fb-4bf6-ac97-fab79f814660)
 

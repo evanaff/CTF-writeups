@@ -5,12 +5,12 @@
 ## Category
 Digital Forensic
 
-## Solve
-The `flag.txt` was provided but the content is empty. I check the file with hexedior and this is what I found.
+## Solution
+The challenge provided a file named flag.txt, but its content appeared empty. I opened the file in a hex editor and found something unusual.
 
 ![image](https://github.com/user-attachments/assets/d9398790-8dba-4b36-9d5b-8954053ab7da)
 
-There some space character (\x20). Let's try to convert space character to 1 and the others to 0 (binary). Then convert it to ascii characters. We can use python script or cyberchef
+There were multiple space characters `0x20`. I was searching for similar challenge on internet and the idea was to treat each space character as `1` and every other character as `0`, effectively creating a binary sequence. Then, by converting the binary into ASCII characters, the flag could be revealed. This can be done using either a Python script or CyberChef.
 
 ```python
 with open("flag.txt", 'r') as file:

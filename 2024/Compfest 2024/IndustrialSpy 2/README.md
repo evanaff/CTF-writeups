@@ -5,6 +5,7 @@
 ## Category
 Digital Forensic
 
+## Solution
 The challenge provided a `.pcapng` file named `traffic.pcapng`. I forgot the exact description of the challenge, but the main objective was to figure out what an attacker/spy was doing on a computer whose traffic was captured in this file. Here is an overview of the `.pcapng` file:
 
 ![Screenshot from 2024-09-03 00-10-39](https://github.com/user-attachments/assets/91e73699-dccb-42f9-83b9-1d3abdc3c8ae)
