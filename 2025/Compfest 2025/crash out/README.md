@@ -13,7 +13,7 @@ Attachments : `dump.ad1`
 ## Solution
 I was given AD1 file which can be opened using FTK Imager. I extracted it for easier analysis and found that it contained a dump of the `Windows filesystem`.
 
-In the description, it mentioned that the laptop hung/crash. After some searching, I know that when Windows crashes or hangs, it usually generates a dump file (`.dmp`) to explain the cause. So I looked for dump files and found several of them.
+In the description, it mentioned that the laptop hung/crash. After some searching, I knew that when Windows crashes or hangs, it usually generates a dump file (`.dmp`) to explain the cause. So I looked for dump files and found several of them.
 
 ![alt text](images/image1.png)
 
