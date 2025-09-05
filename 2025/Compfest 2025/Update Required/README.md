@@ -41,6 +41,7 @@ There is 2 main function that I highlighted:
 2. `send_parts()` to send encrypted parts of `secret.pdf` to `192.168.129.92:1337`
 
 **Obtaining every parts of encrypted `secret.pdf` :**
+
 I used the filter : 
 ```
 ip.addr == 192.168.129.92 && tcp.port == 1337
@@ -48,6 +49,7 @@ ip.addr == 192.168.129.92 && tcp.port == 1337
 on Wireshark and extracted 3 different payloads then concatenated them into `secret.enc`.
 
 **Decrypting `secret.enc` :**
+
 `encrypt_file_and_split()`:
 ```c
 undefined8 __rustcall
@@ -280,7 +282,7 @@ There are 2 hardcoded strings: `KleeLovesBoomsrc/main.rs` and `Mondstadt4Ever`.
 
 The `key` was obtained by taking first 16 bytes of the `SHA-256` hash of the concatenated strings.
 
-The `iv` was obtained by reversing the `SHA-256` hash of `Mondstadt4Ever`
+The `iv` was obtained by reversing the `SHA-256` hash of `Mondstadt4Ever`.
 
 > I don't know why but it only works if the first string is `KleeLovesBoom`, not `KleeLovesBoomsrc/main.rs`
 
@@ -329,6 +331,7 @@ if __name__ == "__main__":
 `secret.pdf` is retrieved successfully. BUT I nedd password to open it.
 
 **Obtaining wallet vault password :**
+
 The description mention that the PDF passowrd is `wallet's seed phrase (exported from a Chrome extension), joined with an underscore (__)`. But to obtain the wallet's seed phrase I need to decrypt the wallet vault using vault password. The description also says that `the researcher once copied the vault password to clipboard`.
 
 I used this reference: [https://www.inversecos.com/2022/05/how-to-perform-clipboard-forensics.html](https://www.inversecos.com/2022/05/how-to-perform-clipboard-forensics.html) to find the password from clipboard.
@@ -339,6 +342,7 @@ I used this reference: [https://www.inversecos.com/2022/05/how-to-perform-clipbo
 vault password : `m0ndstadtc1ty0fFr33dom`
 
 **Find and decrypting vault :**
+
 I used this reference: [https://medium.com/@0xVrka/unlocking-the-vault-disk-image-forensic-for-metamask-passphrase-recovery-via-master-passwords-8c44fcfd04ee](https://medium.com/@0xVrka/unlocking-the-vault-disk-image-forensic-for-metamask-passphrase-recovery-via-master-passwords-8c44fcfd04ee). The vault is located at :
 ```
 \AppData\Local\Google\Chrome\User Data\Default\IndexedDB\chrome-extension_nkbihfbeogaeaoehlefnkodbefgpgknn_0.indexeddb.leveldb\000003.log
